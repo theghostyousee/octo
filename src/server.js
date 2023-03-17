@@ -39,7 +39,7 @@ const CounterSchema = new mongoose.Schema({
 const Counter = mongoose.model("Counter", CounterSchema);
 
 // Handle POST requests to /api/updateCounter
-app.all("/api/updateCounter", async (req, res) => {
+app.post("/api/updateCounter", async (req, res) => {
   try {
     const counter = await Counter.findOneAndUpdate(
       {},
