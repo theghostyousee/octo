@@ -2,19 +2,13 @@
 
 import React from 'react';
 import './main.css';
-import Logo from './logo.png';
 
 function Main() {
-  const handleApplyButtonClick = async () => {
-    try {
-      const response = await fetch('https://octo-j45kgbtoi-emmaleucci7-gmailcom.vercel.app/api/updateCounter', { method: 'POST' });
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
+
+
+  const openTwitter = () => {
+    window.open("https://twitter.com/intent/tweet?text=I%27m%20applying%20for%20the%20Octopus%20Pass%20waitlist.%20See%20you%20on%20%40OctopusFi%0D%0A&original_referer");
+  }
 
   return (
     <div className='wrap'>
@@ -27,7 +21,7 @@ function Main() {
         Earn passive income up to 1,612% APR.</p>
       </div>
       <div className='buttons'>
-        <button onClick={handleApplyButtonClick}>APPLY FOR WAITLIST</button>
+        <button onClick={openTwitter}>APPLY FOR WAITLIST</button>
       </div>
     </div>
   );

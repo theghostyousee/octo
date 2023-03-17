@@ -74,6 +74,7 @@ body:after {
 .wrap .title h1{
     font-size: 2.2rem;
     font-weight: 800;
+    text-align: center;
 }
 
 .wrap .paragraph{
@@ -156,6 +157,158 @@ body:after {
         align-items: center;
         width: 90%;
         height: 10%;
+        text-align: center;
+    }
+    
+    .wrap .paragraph p{
+        font-size: 1rem;
+    }
+    .wrap .buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 10%;
+        text-align: center;
+    }
+    
+    .wrap .buttons button{
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        outline: 0px;
+        border: 0px;
+        margin: 0px;
+        cursor: pointer;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        text-decoration: none;
+        font-size: 0.875rem;
+        line-height: 1.75;
+        text-transform: uppercase;
+        min-width: 64px;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        background-color: rgb(178, 99, 222);
+        border-radius: 17px;
+        padding: 12px 25px;
+        font-family: Inter;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+    }
+    
+}
+
+
+@media screen and (max-width:380px){
+
+    .wrap .title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 10%;
+    }
+    
+    .wrap .title img{
+        border: none;
+        border-radius: 50%;
+        width: 140px;
+    }
+    
+    .wrap .title h1{
+        font-size: 1.8rem;
+        font-weight: 800;
+    }
+    
+    .wrap .paragraph{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 15%;
+        text-align: center;
+    }
+    
+    .wrap .paragraph p{
+        font-size: 1rem;
+    }
+    .wrap .buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 10%;
+        text-align: center;
+    }
+    
+    .wrap .buttons button{
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        outline: 0px;
+        border: 0px;
+        margin: 0px;
+        cursor: pointer;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        text-decoration: none;
+        font-size: 0.875rem;
+        line-height: 1.75;
+        text-transform: uppercase;
+        min-width: 64px;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        background-color: rgb(178, 99, 222);
+        border-radius: 17px;
+        padding: 12px 25px;
+        font-family: Inter;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+    }
+    
+}
+
+
+@media screen and (max-width:380px){
+
+    .wrap .title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 10%;
+    }
+    
+    .wrap .title img{
+        border: none;
+        border-radius: 50%;
+        width: 140px;
+    }
+    
+    .wrap .title h1{
+        font-size: 1.8rem;
+        font-weight: 800;
+    }
+    
+    .wrap .paragraph{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 15%;
         text-align: center;
     }
     
