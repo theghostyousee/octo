@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const MONGODB_URI = 'mongodb+srv://<username>:<password>@cluster0.bdkhw0v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const MONGODB_URI = 'mongodb+srv://topezmario8:koussi@cluster0.bdkhw0v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const DB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true };
 
 mongoose.connect(MONGODB_URI, DB_OPTIONS)
