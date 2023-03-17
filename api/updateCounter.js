@@ -11,7 +11,14 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS for all origins
-app.use(cors());
+const corsOptions = {
+  origin: "*",
+  methods: "POST",
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
+
 
 // Connect to MongoDB database
 const MONGODB_URI =
