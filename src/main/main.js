@@ -1,12 +1,13 @@
-import React from 'react'
-import './main.css'
-import Logo from './logo.png'
+// main.js
 
-function main() {
+import React from 'react';
+import './main.css';
+import Logo from './logo.png';
 
+function Main() {
   const handleApplyButtonClick = async () => {
     try {
-      const response = await fetch('https://octo-three.vercel.app/api/updateCounter', { method: 'POST' });
+      const response = await fetch('/api/updateCounter', { method: 'POST' });
       const data = await response.json();
       console.log(data);
     } catch (error) {
@@ -28,7 +29,7 @@ function main() {
         <button onClick={handleApplyButtonClick}>APPLY FOR WAITLIST</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default main;
+export default Main;
