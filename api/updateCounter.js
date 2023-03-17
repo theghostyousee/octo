@@ -23,6 +23,14 @@ const CounterSchema = new mongoose.Schema({
 const Counter = mongoose.model("Counter", CounterSchema);
 
 module.exports = async (req, res) => {
+  // Set CORS headers
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "POST");
+
   if (req.method === "POST") {
     try {
       const counter = await Counter.findOneAndUpdate(
@@ -31,12 +39,6 @@ module.exports = async (req, res) => {
         { new: true }
       );
       console.log("New count value:", counter.count);
-      res.setHeader("Access-Control-Allow-Origin", "*");
-      res.setHeader(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-      );
-      res.setHeader("Access-Control-Allow-Methods", "POST");
       res.status(200).json({ success: true });
     } catch (error) {
       console.error(error);
