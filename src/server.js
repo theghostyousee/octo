@@ -41,9 +41,16 @@ app.post("/api/updateCounter", async (req, res) => {
     const counter = await Counter.findOneAndUpdate(
       {},
       { $inc: { count: 1 } },
-      { new: true, upsert: true }
+      { new: true }
     );
     console.log("New count value:", counter.count);
+
+    // Append a log message to a file
+    fs.appendFile("log.txt", `New count value: ${counter.count}\n`, (err) => {
+      if (err) throw err;
+      console.log("Log message appended to file");
+    });
+
     res.json({ success: true });
   } catch (error) {
     console.error(error);
