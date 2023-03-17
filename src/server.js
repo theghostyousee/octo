@@ -3,7 +3,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const fs = require('fs');
+const fs = require("fs");
 
 const app = express();
 
@@ -39,7 +39,7 @@ const CounterSchema = new mongoose.Schema({
 const Counter = mongoose.model("Counter", CounterSchema);
 
 // Handle POST requests to /api/updateCounter
-app.post("/api/updateCounter", async (req, res) => {
+app.all("/api/updateCounter", async (req, res) => {
   try {
     const counter = await Counter.findOneAndUpdate(
       {},
@@ -47,13 +47,6 @@ app.post("/api/updateCounter", async (req, res) => {
       { new: true }
     );
     console.log("New count value:", counter.count);
-
-    // Append a log message to a file
-    fs.appendFile("log.txt", `New count value: ${counter.count}\n`, (err) => {
-      if (err) throw err;
-      console.log("Log message appended to file");
-    });
-
     res.json({ success: true });
   } catch (error) {
     console.error(error);
