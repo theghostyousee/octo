@@ -6,7 +6,7 @@ function main() {
 
   const handleApplyButtonClick = async () => {
     try {
-      const response = await fetch('https://octo-three.vercel.app//api/updateCounter', { method: 'POST' });
+      const response = await fetch('https://octo-three.vercel.app/api/updateCounter', { method: 'POST' });
       const data = await response.json();
       console.log(data);
     } catch (error) {
