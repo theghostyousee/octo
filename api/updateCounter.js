@@ -1,5 +1,3 @@
-// server.js
-
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -15,8 +13,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-// Connect to MongoDB database
 const MONGODB_URI =
   "mongodb+srv://topezmario8:koussi@cluster0.bdkhw0v.mongodb.net/test?retryWrites=true&w=majority";
 const DB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true };
@@ -30,7 +26,6 @@ mongoose
     console.error("Error connecting to MongoDB:", error);
   });
 
-// Define Counter schema
 const CounterSchema = new mongoose.Schema({
   count: {
     type: Number,
@@ -38,10 +33,8 @@ const CounterSchema = new mongoose.Schema({
   },
 });
 
-// Create Counter model
 const Counter = mongoose.model("Counter", CounterSchema);
 
-// Handle POST requests to /api/updateCounter
 app.post("/api/updateCounter", async (req, res) => {
   try {
     const counter = await Counter.findOneAndUpdate(
@@ -57,3 +50,4 @@ app.post("/api/updateCounter", async (req, res) => {
   }
 });
 
+module.exports = app;
