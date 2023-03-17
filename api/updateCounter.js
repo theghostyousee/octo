@@ -1,17 +1,4 @@
-const express = require("express");
 const mongoose = require("mongoose");
-
-const app = express();
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.header("Access-Control-Allow-Methods", "POST");
-  next();
-});
 
 const MONGODB_URI =
   "mongodb+srv://topezmario8:koussi@cluster0.bdkhw0v.mongodb.net/test?retryWrites=true&w=majority";
@@ -35,19 +22,28 @@ const CounterSchema = new mongoose.Schema({
 
 const Counter = mongoose.model("Counter", CounterSchema);
 
-app.post("/api/updateCounter", async (req, res) => {
-  try {
-    const counter = await Counter.findOneAndUpdate(
-      {},
-      { $inc: { count: 1 } },
-      { new: true }
-    );
-    console.log("New count value:", counter.count);
-    res.json({ success: true });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false, error: error.message });
+module.exports = async (req, res) => {
+  if (req.method === "POST") {
+    try {
+      const counter = await Counter.findOneAndUpdate(
+        {},
+        { $inc: { count: 1 } },
+        { new: true }
+      );
+      console.log("New count value:", counter.count);
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+      );
+      res.setHeader("Access-Control-Allow-Methods", "POST");
+      res.status(200).json({ success: true });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, error: error.message });
+    }
+  } else {
+    res.setHeader("Allow", "POST");
+    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
-});
-
-module.exports = app;
+};
