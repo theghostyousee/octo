@@ -17,7 +17,7 @@ function main() {
   return (
     <div className='wrap'>
       <div className='title'>
-        <h1> JOIN THE OCTOPUS F </h1>
+        <h1> JOIN THE OCTOPUS FI </h1>
       </div>
 
       <div className='paragraph'>
