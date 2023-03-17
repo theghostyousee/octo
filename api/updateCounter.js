@@ -1,16 +1,4 @@
 const mongoose = require("mongoose");
-const Cors = require("micro-cors");
-
-const cors = Cors({
-  allowMethods: ["POST"],
-  allowHeaders: [
-    "Origin",
-    "X-Requested-With",
-    "Content-Type",
-    "Accept",
-    "Authorization",
-  ],
-});
 
 const MONGODB_URI =
   "mongodb+srv://topezmario8:koussi@cluster0.bdkhw0v.mongodb.net/test?retryWrites=true&w=majority";
@@ -34,7 +22,14 @@ const CounterSchema = new mongoose.Schema({
 
 const Counter = mongoose.model("Counter", CounterSchema);
 
-const handler = async (req, res) => {
+module.exports = async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "POST");
+
   if (req.method === "POST") {
     try {
       const counter = await Counter.findOneAndUpdate(
@@ -53,5 +48,3 @@ const handler = async (req, res) => {
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 };
-
-module.exports = cors(handler);
