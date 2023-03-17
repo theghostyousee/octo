@@ -7,17 +7,15 @@ const fs = require("fs");
 
 const app = express();
 
-// Parse JSON body requests
-app.use(express.json());
-
-// Enable CORS for all origins
-const corsOptions = {
-  origin: "*",
-  methods: "POST",
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-
-app.use(cors(corsOptions));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.header("Access-Control-Allow-Methods", "POST");
+  next();
+});
 
 
 // Connect to MongoDB database
