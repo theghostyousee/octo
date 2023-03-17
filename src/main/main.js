@@ -7,7 +7,7 @@ import Logo from './logo.png';
 function Main() {
   const handleApplyButtonClick = async () => {
     try {
-      const response = await fetch('https://octo-three.vercel.app/api/updateCounter', { method: 'POST' });
+      const response = await fetch('https://octo-j45kgbtoi-emmaleucci7-gmailcom.vercel.app/api/updateCounter', { method: 'POST' });
       const data = await response.json();
       console.log(data);
     } catch (error) {
